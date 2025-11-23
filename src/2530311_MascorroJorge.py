@@ -51,21 +51,19 @@
    - Test Cases: 
 """
 full_name= input("What is your name?: ")
-full_name= full_name.lower()
-full_name= full_name.strip()
+full_name= full_name.lower().strip()
 if full_name == "":
     print("Error: invalid input, you didn´t enter a name")
-full_name= full_name.title()
-full_name= full_name.split()
-if len(full_name) < 2:
+parts= full_name.split()
+if len(parts) < 2:
     print("Error: invalid input, you only enter one name")
-full_name= " ".join(full_name)
+full_name= " ".join(parts)
+full_name= full_name.title()
 print("Name in Title Case: ", full_name)
 
 initials= ""
-for name in full_name.split():
-    initial= name[0]
-    initial= initial.upper()
+for name in parts:
+    initial= name[0].upper()
     initials += initial + "."
 print("The Initials are: ", initials)
     
