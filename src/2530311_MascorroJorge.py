@@ -45,18 +45,45 @@
 # Problem 1: Full name formatter (name + initials)
 """
    - Descripción: 
+      Este programa le pide al usuario que escriba su nombre completo y se encarga de limpiarlo, corrigiendo mayúsculas, minúsculas 
+      y espacios de más para dejarlo perfectamente presentable. También verifica que el usuario haya ingresado un nombre válido con 
+      al menos dos palabras. Después, muestra el nombre ya formateado en un estilo claro y profesional, y finalmente genera automáticamente 
+      las iniciales correspondientes.
+
    - Inputs:
+      full_name (string): El nombre completo ingresado por el usuario, que puede venir en mayúsculas, minúsculas o con espacios extra.
+
    - Outputs:
+      Name in Title Case: Es el nombre del usuario ya limpio, sin espacios extra y con mayúsculas correctamente aplicadas.
+      The Initials are: Son las iniciales generadas automáticamente tomando la primera letra de cada palabra del nombre.
+
    - Validations:
+      if full_name == "": # Verifica que el usuario no deje el nombre en blanco.
+      if len(parts) < 2: # Verifica que el usuario haya ingresado al menos dos nombres.
+      
    - Test Cases: 
+      # CASO NORMAL
+        What is your name?: jorge mascorro barraza
+        Name in Title Case: Jorge Mascorro Barraza
+        The Initials are: J.M.B.
+      
+      # CASO BORDE
+        What is your name?: jorge
+        Error: invalid input, you only enter one name
+
+      # CASO ERROR
+        What is your name?:
+        Error: invalid input, you didn´t enter a name
 """
 full_name= input("What is your name?: ")
 full_name= full_name.lower().strip()
 if full_name == "":
     print("Error: invalid input, you didn´t enter a name")
+    exit()
 parts= full_name.split()
 if len(parts) < 2:
     print("Error: invalid input, you only enter one name")
+    exit()
 full_name= " ".join(parts)
 full_name= full_name.title()
 print("Name in Title Case: ", full_name)
@@ -67,4 +94,40 @@ for name in parts:
     initials += initial + "."
 print("The Initials are: ", initials)
     
-    
+
+# Problem 2: Simple email validator (structure + domain)
+"""
+   - Descripción: 
+
+   - Inputs:
+
+   - Outputs:
+
+
+   - Validations:
+
+      
+   - Test Cases: 
+      # CASO NORMAL
+
+      
+      # CASO BORDE
+
+
+      # CASO ERROR
+
+"""
+print("\n")
+
+email_text= input("Set your email: ")
+
+if email_text.count("@") == 1 and " " not in email_text:
+   at= email_text.find("@")
+   domain= email_text[at+1:]
+   if "." in domain:
+      print("Valid email: True")
+      print("The domain is:", domain)
+   else:
+      print("Valid email: False")
+else:
+    print("Valid email: False")
