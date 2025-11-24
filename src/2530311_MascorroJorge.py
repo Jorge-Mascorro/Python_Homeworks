@@ -51,27 +51,30 @@
       las iniciales correspondientes.
 
    - Inputs:
-      full_name (string): El nombre completo ingresado por el usuario, que puede venir en mayúsculas, minúsculas o con espacios extra.
+      - full_name (string): El nombre completo ingresado por el usuario, que puede venir en mayúsculas, minúsculas o con espacios extra.
 
    - Outputs:
-      Name in Title Case: Es el nombre del usuario ya limpio, sin espacios extra y con mayúsculas correctamente aplicadas.
-      The Initials are: Son las iniciales generadas automáticamente tomando la primera letra de cada palabra del nombre.
+      - Name in Title Case: Es el nombre del usuario ya limpio, sin espacios extra y con mayúsculas correctamente aplicadas.
+      - The Initials are: Son las iniciales generadas automáticamente tomando la primera letra de cada palabra del nombre.
 
    - Validations:
-      if full_name == "": # Verifica que el usuario no deje el nombre en blanco.
-      if len(parts) < 2: # Verifica que el usuario haya ingresado al menos dos nombres.
+      - if full_name == "": # Verifica que el usuario no deje el nombre en blanco.
+      - if len(parts) < 2: # Verifica que el usuario haya ingresado al menos dos nombres.
       
    - Test Cases: 
       # CASO NORMAL
+
         What is your name?: jorge mascorro barraza
         Name in Title Case: Jorge Mascorro Barraza
         The Initials are: J.M.B.
       
       # CASO BORDE
+
         What is your name?: jorge
         Error: invalid input, you only enter one name
 
       # CASO ERROR
+
         What is your name?:
         Error: invalid input, you didn´t enter a name
 """
@@ -98,23 +101,39 @@ print("The Initials are: ", initials)
 # Problem 2: Simple email validator (structure + domain)
 """
    - Descripción: 
+      Este problema consiste en crear un validador sencillo de correos electrónicos que revise si el formato básico es correcto. 
+      Debe verificar que el texto tenga exactamente un símbolo '@', que el dominio incluya al menos un punto y que no existan espacios. 
+      Si el correo es válido, también debe mostrar la parte del dominio que aparece después del '@'.
 
    - Inputs:
+      - email_text = input("Set your email: ").- Le solicita al usuario que ingrese que correo que desea verificar.
 
    - Outputs:
-
+      - Valid email: True, Valid email: False .- Ambos muestran si el correo es válido dependiendo si cumple con las validaciones estipuladas.
+      - print("The domain is:", domain).- Se imprime la parte que sigue después del arroba solamente si es válido el correo.
 
    - Validations:
-
-      
+      - email_text.count("@") == 1 .- Valida que el correo solo contenga un arroba.
+      - " " not in email_text .- Valida que el correo no contenga espacios en blanco.
+      - "." in domain .- Valida que tenga un "." en el dominio después del arroba.
+  
    - Test Cases: 
       # CASO NORMAL
 
+      Set your email: mascorro@123.mx
+      Valid email: True
+      The domain is: 123.mx
       
       # CASO BORDE
 
+      Set your email: a@b.c
+      Valid email: True
+      The domain is: b.c
 
       # CASO ERROR
+
+      Set your email: jorgeeegmail.com
+      Valid email: False
 
 """
 print("\n")
@@ -131,3 +150,41 @@ if email_text.count("@") == 1 and " " not in email_text:
       print("Valid email: False")
 else:
     print("Valid email: False")
+
+# Problem 3: Palindrome checker (ignoring spaces and case)
+"""
+   - Descripción: 
+
+   - Inputs:
+
+   - Outputs:
+
+   - Validations:
+  
+   - Test Cases: 
+      # CASO NORMAL
+
+      
+      # CASO BORDE
+
+
+      # CASO ERROR
+
+
+"""
+print("\n")
+
+phrase= input("Type the phrase you wanna check: ")
+phrase= phrase.replace(" ","").lower()
+reverse= phrase[::-1]
+if len(phrase) > 3:
+
+   if reverse == phrase:
+      print("Is palindrome: True")
+      print("Normalized phrase: ", phrase)
+
+   else:
+      print("Is palindrome: False")
+      
+else:
+   print("Is palindrome: False")
