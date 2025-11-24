@@ -78,6 +78,8 @@
         What is your name?:
         Error: invalid input, you didn´t enter a name
 """
+print("------------------------------------------------------------------------------------------------------")
+
 full_name= input("What is your name?: ")
 full_name= full_name.lower().strip()
 if full_name == "":
@@ -137,6 +139,7 @@ print("The Initials are: ", initials)
 
 """
 print("\n")
+print("------------------------------------------------------------------------------------------------------")
 
 email_text= input("Set your email: ")
 
@@ -173,6 +176,7 @@ else:
 
 """
 print("\n")
+print("------------------------------------------------------------------------------------------------------")
 
 phrase= input("Type the phrase you wanna check: ")
 phrase= phrase.replace(" ","").lower()
@@ -190,6 +194,57 @@ else:
    print("Is palindrome: False")
 
 # Problem 4: Sentence word stats (lengths and first/last word)
+"""
+   - Descripción: 
+
+   - Inputs:
+
+   - Outputs:
+
+   - Validations:
+  
+   - Test Cases: 
+      # CASO NORMAL
+
+      
+      # CASO BORDE
+
+
+      # CASO ERROR
+
+
+"""
+print("\n")
+print("------------------------------------------------------------------------------------------------------")
+
+sentence= input("Type a sentence: ")
+sentence= sentence.strip()
+if sentence == "":
+   print("Error: you didn´t type a sentence")
+else:
+   separate_words= sentence.split()
+   if len(separate_words) == 0:
+      print("Error: invalid word")
+   else:
+      word_count= len(separate_words)
+      first_word= separate_words[0]
+      last_word= separate_words[-1]
+      shortest_word= separate_words[0]
+      largest_word= separate_words[0]
+
+      for word in separate_words:
+         if len(word) < len(shortest_word):
+            shortest_word= word
+         if len(word) > len(largest_word):
+            largest_word= word
+      
+      print("Word count: ", word_count)
+      print("First word: ", first_word)
+      print("Last word: ", last_word)
+      print("Shortest word: ", shortest_word)
+      print("Largest word: ", largest_word)
+
+# Problem 5: Password strength classifier
 """
    - Descripción: 
 
