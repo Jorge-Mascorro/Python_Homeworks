@@ -188,3 +188,25 @@ if len(phrase) > 3:
       
 else:
    print("Is palindrome: False")
+
+# Problem 4: Sentence word stats (lengths and first/last word)
+"""
+   - Descripción: 
+
+   - Inputs:
+
+   - Outputs:
+
+   - Validations:
+  
+   - Test Cases: 
+      # CASO NORMAL
+
+      
+      # CASO BORDE
+
+
+      # CASO ERROR
+
+
+"""
