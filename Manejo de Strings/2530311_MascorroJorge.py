@@ -262,6 +262,44 @@ else:
 
 
       # CASO ERROR
-
-
 """
+print("\n")
+print("------------------------------------------------------------------------------------------------------")
+
+password= input("Type your password: ")
+if password == "":
+   print("Error: didn´t type a password")
+else:
+   has_upper= False
+   has_lower= False
+   has_symbol= False
+   has_digit= False
+
+   for character in password:
+      if character.isupper():
+         has_upper= True
+      elif character.islower():
+         has_lower= True
+      elif character.isdigit():
+         has_digit= True
+      elif not character.isalnum():
+         has_symbol= True
+
+   if len(password) < 8:
+      print("Password strenght: WEAK")
+   elif has_upper and has_lower and has_digit and has_symbol:
+      print("Password strenght: STRONG")
+   else:
+      print("PasswordS strenght: MEDIUM")
+
+
+
+
+
+
+
+
+
+
+    
+
