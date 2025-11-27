@@ -180,3 +180,142 @@ else:
    print("Overtime pay:", overtime_pay)
    print("Total pay:", total_pay)
    print("Has overtime:", has_overtime)
+
+# Problem 3: Discount eligibility with booleans
+"""
+   - Descripción: 
+      Este problema consiste en determinar si un cliente puede recibir un descuento del 10% 
+      según ciertas condiciones, como ser estudiante, ser adulto mayor o realizar una compra 
+      de al menos $1000. Para ello, el programa convierte las respuestas del usuario a valores 
+      booleanos y valida que sean correctas. Con base en estas condiciones, calcula si el 
+      descuento aplica y muestra el total final a pagar.
+
+   - Inputs:
+      - purchase_total = float(input("What is the purchase amount?: ")) .- Pide el monto de la compra
+      - is_student_text = input("Are you a student? (YES/NO): ").strip().upper() .- Pregunta si eres estudiante
+      - is_senior_text = input("Are you a senior? (YES/NO): ").strip().upper() .- Pregunta si eres adulto 
+
+   - Outputs:
+      - print("Discount eligible:", discount_eligible) .- Muestra si eres elegible para descuento
+      - print("Final total:", final_total) .- Muestra el total de la compra, ya sea con descuento o sin descuento.
+
+   - Validations:
+      - if purchase_total < 0.0:
+            print("Error: invalid purchase amount") .- Si el total sin descuento es menor que 0 marca error.
+            exit()
+      - if (is_student_text != "YES" and is_student_text != "NO") or \
+            (is_senior_text != "YES" and is_senior_text != "NO"): .- Si el texto no es "YES" ni "NO", mostrar Error: invalid input.
+            print("Error: invalid input")
+            exit()
+
+
+   - Test Cases: 
+      # CASO NORMAL
+
+      What is the purchase amount?: 850
+      Are you a student? (YES/NO): YES
+      Are you a senior? (YES/NO): NO
+      Discount eligible: True
+      Final total: 765.0
+
+      # CASO BORDE
+
+      What is the purchase amount?: 1000
+      Are you a student? (YES/NO): NO
+      Are you a senior? (YES/NO): NO
+      Discount eligible: True
+      Final total: 900.0
+
+      # CASO ERROR
+
+      What is the purchase amount?: 500
+      Are you a student? (YES/NO): MAYBE
+      Are you a senior? (YES/NO): NO
+      Error: invalid input
+"""
+
+print("\n")
+print("------------------------------------------------------------------------------------------------------")
+
+purchase_total = float(input("What is the purchase amount?: "))
+is_student_text = input("Are you a student? (YES/NO): ").strip().upper()
+is_senior_text = input("Are you a senior? (YES/NO): ").strip().upper()
+
+if purchase_total < 0.0:
+    print("Error: invalid purchase amount")
+    exit()
+
+if (is_student_text != "YES" and is_student_text != "NO") or \
+   (is_senior_text != "YES" and is_senior_text != "NO"):
+    print("Error: invalid input")
+    exit()
+
+is_student = (is_student_text == "YES")
+is_senior = (is_senior_text == "YES")
+
+discount_eligible = is_student or is_senior or (purchase_total >= 1000.0)
+
+if discount_eligible:
+    final_total = purchase_total * 0.9   
+else:
+    final_total = purchase_total
+
+print("Discount eligible:", discount_eligible)
+print("Final total:", final_total)
+
+# Problem 4: Basic statistics of three integers
+"""
+   - Descripción: 
+
+
+   - Inputs:
+
+
+   - Outputs:
+
+
+   - Validations:
+
+
+
+   - Test Cases: 
+      # CASO NORMAL
+
+
+      # CASO BORDE
+
+
+      # CASO ERROR
+
+"""
+
+print("\n")
+print("------------------------------------------------------------------------------------------------------")
+
+try:
+    n1 = int(input("Enter number 1: "))
+    n2 = int(input("Enter number 2: "))
+    n3 = int(input("Enter number 3: "))
+    minimum= None
+    maximum= None
+    all_even= False
+
+    sum_value= n1 + n2 + n3
+
+    average_value= sum_value/3
+
+    minimum= min(n1, n2, n3)
+    maximum= max(n1, n2, n3)
+
+    if n1 % 2 == 0 and n2 % 2 == 0 and n3 % 2 == 0:
+        all_even= True 
+
+    print("Sum: ", sum_value)
+    print("Average: ", average_value)
+    print("Minimum: ", minimum)
+    print("Maximum: ", maximum)
+    print("All even: ", all_even)
+except ValueError:
+    print("Error: invalid input")
+    exit()
+
