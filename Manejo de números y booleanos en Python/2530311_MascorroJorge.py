@@ -319,3 +319,49 @@ except ValueError:
     print("Error: invalid input")
     exit()
 
+
+# Problem 5: Loan eligibility (income and debt ratio)
+"""
+   - Descripción: 
+
+
+   - Inputs:
+
+
+   - Outputs:
+
+
+   - Validations:
+
+
+
+   - Test Cases: 
+      # CASO NORMAL
+
+
+      # CASO BORDE
+
+
+      # CASO ERROR
+
+"""
+
+print("\n")
+print("------------------------------------------------------------------------------------------------------")
+
+monthly_income= float(input("Enter your monthly income: "))
+monthly_debt= float(input("Enter your total monthly debt payments: "))
+credit_score= int(input("Enter your credit score: "))
+
+if monthly_income < 0 or monthly_debt < 0 or credit_score < 0:
+    print("Error: Invalid input")
+
+debt_radio= monthly_debt / monthly_income
+has_elegible= False
+
+if monthly_income >= 8000 and debt_radio <= 0.4 and credit_score >= 650:
+    has_elegible= True
+
+print("Debt ratio: ", debt_radio)
+print("Eligible: ", has_elegible)
+
