@@ -266,27 +266,54 @@ print("Final total:", final_total)
 # Problem 4: Basic statistics of three integers
 """
    - Descripción: 
-
+      Este problema solicita leer tres números enteros y calcular con ellos la suma, el promedio, el máximo y el mínimo. 
+      Además, determina si los tres valores son pares mediante un booleano. Solo requiere validar que las entradas puedan 
+      convertirse a enteros, permitiendo también números negativos.
 
    - Inputs:
-
+      - n1 = int(input("Enter number 1: ")) .- Pide al usuario el valor del número 1.
+      - n2 = int(input("Enter number 2: ")) .- Pide al usuario el valor del número 2.
+      - n3 = int(input("Enter number 3: ")) .- Pide al usuario el valor del número 3.
 
    - Outputs:
-
+      - print("Sum: ", sum_value) .- Muestra el valor de la suma de los números
+      - print("Average: ", average_value) .- Muestra el promedio de los números.
+      - print("Minimum: ", minimum) .- Muestra el número menor.
+      - print("Maximum: ", maximum) .- Muestra el número mayor.
+      - print("All even: ", all_even) .- Muestra si todos los números son pares.
 
    - Validations:
-
-
+      - Verificar que los 3 números puedan convertirse a enteros, pero yo desde las entradas los defini como enteros.
 
    - Test Cases: 
       # CASO NORMAL
 
+      Enter number 1: 10
+      Enter number 2: 5
+      Enter number 3: 7
+      Sum:  22
+      Average:  7.333333333333333
+      Minimum:  5
+      Maximum:  10
+      All even:  False
 
       # CASO BORDE
 
+      Enter number 1: 2
+      Enter number 2: 4
+      Enter number 3: 6
+      Sum:  12
+      Average:  4.0
+      Minimum:  2
+      Maximum:  6
+      All even:  True
 
       # CASO ERROR
 
+      Enter number 1: abc
+      Enter number 2: 5
+      Enter number 3: 7
+      Error: invalid input
 """
 
 print("\n")
@@ -323,27 +350,47 @@ except ValueError:
 # Problem 5: Loan eligibility (income and debt ratio)
 """
    - Descripción: 
-
+      Este problema evalúa si una persona cumple los requisitos para obtener un préstamo utilizando su ingreso mensual, su nivel de 
+      deuda y su puntaje de crédito. Primero se calcula el índice de deuda (debt_ratio) y, con base en este valor, se determina si la 
+      persona es elegible siguiendo reglas específicas. Además, se validan las entradas para evitar valores inválidos y se muestra un 
+      mensaje de error si no cumplen los criterios mínimos. Finalmente, el programa imprime el índice de deuda y un indicador booleano que 
+      confirma o niega la elegibilidad.
 
    - Inputs:
-
+      - monthly_income= float(input("Enter your monthly income: ")) .- El usuario ingresa su ingreso mensual.
+      - monthly_debt= float(input("Enter your total monthly debt payments: ")) .- El usuario ingresa los pagos mensuales de deuda.
+      - credit_score= int(input("Enter your credit score: ")) .- El usuario ingresa su puntaje de crédito.
 
    - Outputs:
-
+      - print("Debt ratio: ", debt_radio) .- Se muestra el índice de deuda del usuario.
+      - print("Eligible: ", has_elegible) .- Se muestra si es elegible o no para el préstamo dependiendo de la regla estipulada.
 
    - Validations:
-
-
+      - if monthly_income < 0 or monthly_debt < 0 or credit_score < 0: .- Muestra el error si no se cumple la validación.
 
    - Test Cases: 
       # CASO NORMAL
 
+      Enter your monthly income: 10000
+      Enter your total monthly debt payments: 3000
+      Enter your credit score: 700
+      Debt ratio:  0.3
+      Eligible:  True
 
       # CASO BORDE
 
+      Enter your monthly income: 8000
+      Enter your total monthly debt payments: 3200
+      Enter your credit score: 650
+      Debt ratio:  0.4
+      Eligible:  True
 
       # CASO ERROR
 
+      Enter your monthly income: 0
+      Enter your total monthly debt payments: 1000
+      Enter your credit score: 700
+      Error: invalid input
 """
 
 print("\n")
@@ -365,3 +412,100 @@ if monthly_income >= 8000 and debt_radio <= 0.4 and credit_score >= 650:
 print("Debt ratio: ", debt_radio)
 print("Eligible: ", has_elegible)
 
+
+# Problem 6: Body Mass Index (BMI) and category flag
+"""
+   - Descripción: 
+      Este problema calcula el Índice de Masa Corporal (BMI) de una persona usando su peso y estatura, y determina 
+      si se encuentra en categoría de bajo peso, normal o sobrepeso. El programa valida que las entradas sean mayores que cero
+      para evitar errores y luego clasifica el BMI según rangos establecidos. Finalmente, muestra el BMI redondeado y los indicadores 
+      booleanos que corresponden a cada categoría.
+      
+   - Inputs:
+      - weight_kg= float(input("Enter your weight in kilograms: ")) .- Pide al usuario su peso en kg.
+      - height_m= float(input("Enter your height in meters: ")) .- Pide al usuario su estatura en metros (m).
+      
+   - Outputs:
+      - print("BMI: ",round(bmi,2)) .- Muestra el BMI del usuario redondeado en 2 decimales.
+      - print("Underweight: ",is_underweight) .- Determina si tiene escases de peso.
+      - print("Normal: ",is_normal) .- Determina si está en peso normal.
+      - print("Overweight: ",is_overweight) .- Determina si tiene sobrepeso.
+
+   - Validations:
+      - if weight_kg < 0 or height_m < 0: .- Si alguno de los dos es menor que 0 muestra error.
+            print("Error: invalid input")
+
+   - Test Cases: 
+      # CASO NORMAL
+
+      Enter your weight in kilograms: 70.0
+      Enter your height in meters: 1.75
+      BMI:  22.86
+      Underweight:  False
+      Normal:  True
+      Overweight:  False
+
+      # CASO BORDE
+
+      Enter your weight in kilograms: 62.5
+      Enter your height in meters: 1.58
+      BMI:  22.86
+      Underweight:  False
+      Normal:  False
+      Overweight:  True
+
+      # CASO ERROR
+
+      Enter your weight in kilograms: 70.0
+      Enter your height in meters: 0.0
+      Error: invalid input
+"""
+
+print("\n")
+print("------------------------------------------------------------------------------------------------------")
+
+weight_kg= float(input("Enter your weight in kilograms: "))
+height_m= float(input("Enter your height in meters: "))
+
+if weight_kg < 0 or height_m < 0:
+    print("Error: invalid input")
+
+is_underweight= False
+is_normal= False
+is_overweight= False
+
+bmi= float(weight_kg / (height_m * height_m))
+
+if bmi < 18.5:
+    is_underweight= True
+elif 18.5 <= bmi < 25:
+    is_normal= True
+elif bmi >= 25:
+    is_overweight= True
+
+print("BMI: ",round(bmi,2))
+print("Underweight: ",is_underweight)
+print("Normal: ",is_normal)
+print("Overweight: ",is_overweight)
+
+print("------------------------------------------------------------------------------------------------------")
+
+# CONCLUSIONES
+"""
+En estos ejercicios me di cuenta de que los enteros y flotantes se combinan todo el tiempo para resolver problemas reales, porque 
+casi nada en la vida se maneja con números “exactos”; siempre hay promedios, divisiones y medidas con decimales. También entendí que 
+las comparaciones generan valores booleanos y que esos true o false son los que realmente deciden qué camino toma un programa 
+dentro de un if. Otra cosa importante es validar rangos y evitar errores como dividir entre cero, porque sin esas validaciones el 
+programa podría fallar aunque el código esté bien escrito. Además, aprendí a diseñar condiciones combinadas con operadores 
+como and, or y not, y cómo estos permiten crear reglas más completas. Lo interesante es que estos patrones se repiten en muchos 
+contextos, como nóminas, descuentos o préstamos, donde siempre hay que calcular, comparar y tomar decisiones basadas en datos.
+"""
+
+# REFERENCIAS
+"""
+   1) Documentación oficial de Python: https://docs.python.org/3/library/
+   2) Conversión de tipos y manejo de errores: https://docs.python.org/3/library/functions.html
+   3) Operadores lógicos y estructuras condicionales: https://docs.python.org/3/reference/expressions.html#boolean-operations
+   4) Tipo booleano y expresiones lógicas (and, or, not): https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not
+   5) Instrucciones condicionales if / else: https://docs.python.org/3/tutorial/controlflow.html#if-statements
+"""
