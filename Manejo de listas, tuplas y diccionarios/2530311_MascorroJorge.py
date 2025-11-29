@@ -316,7 +316,6 @@ else:
       - if len(list) == 0:
             print("Error: no grades available") .- Valida que la lista de calificaciones no este vacía.
       
-
    - Test Cases: 
       # CASO NORMAL
 
@@ -426,3 +425,200 @@ else:
         print("Passed:", is_passed)
 
 
+# Problem 5: Word frequency counter (list + dict)
+"""
+   - Descripción: 
+      Este problema consiste en leer una oración y analizarla para descubrir cuántas veces aparece cada palabra. El programa 
+      convierte todo a minúsculas, separa la frase en palabras y construye un diccionario con sus frecuencias. Al final muestra 
+      el resultado completo y señala cuál palabra fue la más repetida, asegurándose también de que la oración no esté vacía y 
+      manejando signos de puntuación simples.
+
+   - Inputs:
+      - sentence= input("Enter a sentence: ").strip() .- Pide al usuario la oración y normaliza espacios.
+
+   - Outputs:
+      - print("Words list:", words_list) .- Muestra la oración en forma de lista
+      - print("Frequencies:", frequence_dict) .- Muestra cada palabra de la oración con su frecuencia en un diccionario.
+      - print("Most common word:", most_common_word) .- Muestra la palabra mas repetida.
+
+   - Validations:
+      - if sentence == "":
+            print("Error: the sentence cannot be empty") .- Valida que la oración no este vacía tras el uso del strip().
+            exit()
+      - if len(words_list)== 0:
+            print("Error: no words found in the sentence") .- Valida que la lista de las palabras no se encuentre vacía.
+            exit()
+      
+   - Test Cases: 
+      # CASO NORMAL
+
+      Enter a sentence: Hello WOrlD HEllO ChatGPT
+      Words list: ['hello', 'world', 'hello', 'chatgpt']
+      Frequencies: {'hello': 2, 'world': 1, 'chatgpt': 1}
+      Most common word: hello
+
+      # CASO BORDE
+
+      Enter a sentence: test test test test
+      Words list: ['test', 'test', 'test', 'test']
+      Frequencies: {'test': 4}
+      Most common word: test
+
+      # CASO ERROR
+
+      Enter a sentence: 
+      Error: the sentence cannot be empty.
+"""
+
+print("\n")
+print("------------------------------------------------------------------------------------------------------")
+
+sentence= input("Enter a sentence: ").strip()
+if sentence == "":
+    print("Error: the sentence cannot be empty")
+    exit()
+
+sentence= sentence.lower()
+sentence= sentence.replace(",","").replace(".","")
+words_list= sentence.split()
+
+if len(words_list)== 0:
+    print("Error: no words found in the sentence")
+    exit()
+
+frequence_dict= {}
+for word in words_list:
+    if word in frequence_dict:
+        frequence_dict[word] += 1
+    else:
+        frequence_dict[word] = 1
+
+most_common_word= None
+highest_freq= 0
+
+for word, freq in frequence_dict.items():
+    if freq > highest_freq:
+        highest_freq= freq
+        most_common_word= word
+
+print("Words list:", words_list)
+print("Frequencies:", frequence_dict)
+print("Most common word:", most_common_word)
+
+
+# Problem 6: Simple contact book (dictionary CRUD)
+"""
+   - Descripción: 
+      Este problema te pide crear una mini agenda donde puedas guardar, buscar o borrar contactos usando un diccionario. 
+      El usuario elige una acción y el programa responde leyendo el nombre (y el teléfono si es necesario) para realizar la operación. 
+      Al final, muestra un mensaje claro indicando si el contacto se agregó, se encontró o se eliminó correctamente.
+
+   - Inputs:
+      - action_text= input("Enter action (ADD, SEARCH, DELETE): ").strip().upper() .- Pide al usuario la acción a realizar.
+      - name= input("Enter name: ").strip() .- Pide el nombre del contacto.
+      - phone= input("Enter phone: ").strip() .- Pide el teléfono del contacto (solo si la acción es ADD).
+      
+   - Outputs:
+      - print("Contact Saved: ", name, phone) .- Muestra que el contacto se guardó correctamente.
+      - print("Phone: ", contacts[name]) .- Muestra el teléfono del contacto buscado.
+      - print("Contact deleted:", name) .- Muestra que el contacto se eliminó correctamente.
+      - print("Error: contact not found") .- Muestra un mensaje de error si el contacto no se encuentra.
+      - print("Error: invalid action") .- Muestra un mensaje de error si la acción ingresada no es válida.
+
+   - Validations:
+      - if action_text not in ["ADD", "SEARCH", "DELETE"]:
+            print("Error: invalid action") .- Valida que la acción ingresada sea correcta.
+            exit()
+      - if len(name) == 0:
+            print("Error: name cannot be empty") .- Valida que el nombre no esté vacío.
+            exit()
+      - if action_text == "ADD":
+            if len(phone) == 0:
+                print("Error: the phone cannot be empty") .- Valida que el teléfono no esté vacío al agregar un contacto.
+                exit()
+      - if action_text == "SEARCH" or action_text == "DELETE":
+            if name not in contacts:
+                print("Error: contact not found") .- Valida que el contacto exista al buscar o eliminar.
+    
+   - Test Cases: 
+      # CASO NORMAL
+
+      Enter action (ADD, SEARCH, DELETE): add
+      Enter name: Daniel
+      Enter phone: 4445556666
+      Contact Saved:  Daniel 4445556666
+
+      # CASO BORDE
+
+      Enter action (SEARCH, ADD, DELETE): search
+      Enter name: mamá
+      Phone: 8341550085
+
+      # CASO ERROR
+
+      Enter action (ADD, SEARCH, DELETE): update
+      Error: invalid action
+"""
+
+print("\n")
+print("------------------------------------------------------------------------------------------------------")
+
+contacts= {
+          'Mamá': 8341550085,
+          'Pedro': 8341269913,
+          'María': 8341879902,
+          'Belinda': 8341267890
+          }
+
+action_text= input("Enter action (ADD, SEARCH, DELETE): ").strip().upper()
+if action_text not in ["ADD", "SEARCH", "DELETE"]:
+    print("Error: invalid action")
+    exit()
+
+name= input("Enter name: ").strip()
+if len(name) == 0:
+    print("Error: name cannot be empty")
+    exit()
+
+if action_text == "ADD":
+    phone= input("Enter phone: ").strip()
+    if len(phone) == 0:
+        print("Error: the phone cannot be empty")
+        exit()
+    
+    contacts[name]= phone
+    print("Contact Saved: ", name, phone)
+
+elif action_text == "SEARCH":
+    if name in contacts:
+        print("Phone: ", contacts[name])
+    else:
+        print("Error: contact not found")
+
+elif action_text == "DELETE":
+    if name in contacts:
+        contacts.pop(name)
+        print("Contact deleted:", name)
+    else: 
+        print("Error: contact not found")
+
+print("------------------------------------------------------------------------------------------------------")
+
+# CONCLUSIONES
+"""
+   Al trabajar con estructuras de datos, uno se da cuenta de que cada una tiene su momento ideal. Las listas son muy prácticas 
+   cuando necesitamos algo dinámico, porque permiten agregar o quitar elementos sin complicaciones. Las tuplas, en cambio, sirven 
+   cuando queremos guardar información que no debería cambiar, como un punto en un mapa o un registro fijo. Los diccionarios 
+   resultan muy cómodos cuando necesitamos encontrar datos rápido usando una clave, por ejemplo buscar un número telefónico por nombre. 
+   Además, al combinarlas, aparecen patrones muy útiles, como diccionarios que guardan listas para organizar mejor la información. 
+   Este tipo de combinaciones hace que los programas se vuelvan más flexibles y fáciles de entender.
+"""
+
+# REFERENCIAS
+"""
+   1) ¿Qué son las listas, tuplas y diccionarios en Python? - https://www.pontia.tech/python-listas-tuplas-diccionario/
+   2) Tipos mutables e inmutables de Python: ¿cuál es la diferencia? - https://realpython.com/python-mutable-vs-immutable-types/
+   3) Estructuras de datos de Python: listas, diccionarios, conjuntos, tuplas - https://www.dataquest.io/blog/data-structures-in-python/?utm_source
+   4) Diccionarios en Python - https://ellibrodepython.com/diccionarios-en-python?utm_source
+   5) Estructuras de datos - https://docs.python.org/es/3/tutorial/datastructures.html?utm_source
+"""
