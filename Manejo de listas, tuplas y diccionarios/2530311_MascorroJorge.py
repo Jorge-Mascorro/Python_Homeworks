@@ -279,3 +279,150 @@ if product_name in product_prices:
     print("Total:", total_price)
 else:
     print("Error: product not found")
+
+
+# Problem 4: Student grades with dict and list
+"""
+   - Descripción: 
+      Este programa gestiona las calificaciones de varios estudiantes utilizando un diccionario donde cada nombre está 
+      asociado a una lista de notas. El usuario ingresa el nombre de un estudiante y el sistema calcula su promedio para 
+      determinar si está aprobado. También incluye validaciones básicas, como verificar que el nombre exista en el diccionario y que 
+      cuente con calificaciones registradas. Si el estudiante no se encuentra, se muestra un mensaje de error.
+
+   - Inputs:
+      - student_1 .- nombre del estudiante 1 
+      - grade1_1 .- calificación 1 del estudiante 1 
+      - grade1_2 .- calificación 2 del estudiante 1 
+      - grade1_3 .- calificación 3 del estudiante 1 
+      - student_2 .- nombre del estudiante 2 
+      - grade2_1 .- calificación 1 del estudiante 2 
+      - grade2_2 .- calificación 2 del estudiante 2 
+      - grade2_3 .- calificación 3 del estudiante 2 
+      - student_3 .- nombre del estudiante 3 
+      - grade3_1 .- calificación 1 del estudiante 3 
+      - grade3_2 .- calificación 2 del estudiante 3 
+      - grade3_3 .- calificación 3 del estudiante 3 
+
+   - Outputs:
+      - print("Grades:", list) .- Muestra las calificaciones en una lista
+      - print("Average:", average) .- Muestra el promedio del alumno
+      - print("Passed:", is_passed) .- Muestra si paso o no.
+
+   - Validations:
+      - if student_name == "":
+            print("Error: you didn´t enter a student") .- Verifica que student_name no se encuentre vacío al hacer strip().
+      - elif student_name not in grades:
+            print("Error: student not found") .- Valida que el estudiante se encuentre en el diccionario.
+      - if len(list) == 0:
+            print("Error: no grades available") .- Valida que la lista de calificaciones no este vacía.
+      
+
+   - Test Cases: 
+      # CASO NORMAL
+
+      Student´s name: Ana
+      School Grade: 85
+      School Grade: 90
+      School Grade: 88
+      --------------------------
+      Student´s name: Luis
+      School Grade: 70
+      School Grade: 75
+      School Grade: 72
+      --------------------------
+      Student´s name: Maria
+      School Grade: 95
+      School Grade: 94
+      School Grade: 96
+      --------------------------
+      Student: Luis
+      Grades: [70.0, 75.0, 72.0]
+      Average: 72.33333333333333
+      Passed: True
+
+      # CASO BORDE
+
+      Student´s name: Pepe
+      School Grade: 70
+      School Grade: 70
+      School Grade: 70
+      --------------------------
+      Student´s name: Juan
+      School Grade: 100
+      School Grade: 100
+      School Grade: 100
+      --------------------------
+      Student´s name: Rosa
+      School Grade: 69.9
+      School Grade: 70
+      School Grade: 70.1
+      --------------------------
+      Student: Pepe
+      Grades: [70.0, 70.0, 70.0]
+      Average: 70.0
+      Passed: True
+
+      # CASO ERROR
+
+      Student´s name: Ana
+      School Grade: 80
+      School Grade: 90
+      School Grade: 70
+      --------------------------
+      Student´s name: Jose
+      School Grade: 60
+      School Grade: 50
+      School Grade: 40
+      --------------------------
+      Student´s name: Karla
+      School Grade: 100
+      School Grade: 95
+      School Grade: 90
+      --------------------------
+      Student: Pedro
+      Error: student not found
+"""
+
+print("\n")
+print("------------------------------------------------------------------------------------------------------")
+
+grades= {}
+
+student_1= input("Student´s name: ").strip()
+grade1_1= float(input("School Grade: "))
+grade1_2= float(input("School Grade: "))
+grade1_3= float(input("School Grade: "))
+grades[student_1]= [grade1_1, grade1_2, grade1_3]
+
+student_2= input("Student´s name: ").strip()
+grade2_1= float(input("School Grade: "))
+grade2_2= float(input("School Grade: "))
+grade2_3= float(input("School Grade: "))
+grades[student_2]= [grade2_1, grade2_2, grade2_3]
+
+
+student_3= input("Student´s name: ").strip()
+grade3_1= float(input("School Grade: "))
+grade3_2= float(input("School Grade: "))
+grade3_3= float(input("School Grade: "))
+grades[student_3]= [grade3_1, grade3_2, grade3_3]
+
+student_name= input("Student: ").strip()
+
+if student_name == "":
+    print("Error: you didn´t enter a student")
+elif student_name not in grades:
+    print("Error: student not found")
+else:
+    list= grades[student_name]
+    if len(list) == 0:
+        print("Error: no grades available")
+    else:
+        average= sum(list) / len(list) 
+        is_passed= average >= 70
+
+        print("Grades:", list)
+        print("Average:", average)
+        print("Passed:", is_passed)
+
+
