@@ -9,13 +9,17 @@
                                           # RESUMEN EJECUTIVO
 """
     - ¿Qué es la serie de Fibonacci?
-       
+       Es una secuencia infinita de números naturales cuyos dos primeros términos son 1 y 1 y tal que, cualquier otro 
+       término se obtiene sumando los dos inmediatamente anteriores. 
 
     - ¿Qué significa “calcular la serie hasta un número de términos n”?
+        Generar y mostrar los primeros n valores de una secuencia o serie matemática, empezando desde el primer término 
+        y contando hasta llegar al término número n.
 
-
-    - ¿Qué cubrira tú programa? 
-  
+    - ¿Qué cubrira tú programa?
+        En este documento se llevara a cabo la serie de fibonacci, donde se pedirá al usuario un número n y se generará la 
+        serie de fibonacci con esa cantidad de términos, comenzando siempre en 0 y 1. El programa validará que n sea un entero válido 
+        y mayor o igual que 1 antes de calcular la serie.  
 """
 
 # Problem: Fibonacci series up to n terms
@@ -79,3 +83,21 @@ try:
         print("Error: invalid input")
 except:
     print("Put a valid number")
+
+print("------------------------------------------------------------------------------------------------------")
+
+# CONCLUSIONES
+"""
+   El uso de un bucle facilitó generar la serie de forma ordenada, permitiendo repetir el cálculo de cada término sin tener que 
+   escribir instrucciones adicionales. Manejar correctamente los casos especiales n = 1 y n = 2 es importante porque esos valores 
+   requieren imprimir solo los primeros elementos sin intentar cálculos que no existen aún. Esta misma lógica puede reutilizarse 
+   en otros programas que necesiten construir secuencias, procesar datos paso a paso o repetir acciones hasta cumplir una condición 
+   específica.
+"""
+
+# REFERENCIAS
+"""
+   1) Sucesión de Fibonacci - https://www2.ual.es/jardinmatema/sucesion-de-fibonacci/
+   2) Sucesión Aritmética - https://www.cuemath.com/algebra/arithmetic-sequence/
+   3) Serie Fibonacci en Python - https://www.youtube.com/watch?v=J_rgLpZHJDw
+"""
