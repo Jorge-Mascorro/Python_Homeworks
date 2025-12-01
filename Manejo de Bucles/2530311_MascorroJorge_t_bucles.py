@@ -312,9 +312,120 @@ while attempts < MAX_ATTEMPTS:
 # Problem 5: Simple menu with while
 """
    - Descripción: 
+      Este problema consiste en crear un menú interactivo que permita al usuario elegir entre varias opciones y ejecutar acciones 
+      diferentes según su selección. El menú debe repetirse continuamente hasta que el usuario escriba 0, lo que indica que desea 
+      salir del programa. Además, el sistema debe mostrar mensajes específicos según la opción elegida y manejar correctamente los 
+      casos en que el usuario ingrese una opción no válida.
 
    - Inputs:
+      - option= int(input("Choose your option: ")) .- Se le pide al usuario que elija la opción que desea ejecutar.
 
+   - Outputs:
+      - if option == 1:
+            print("Hello!!") .- Si elije 1 imprime "Hello!!".
+      - elif option == 2:
+            print(f"Your counter so far: {count}") .- Si elije 2 imprime el contador hasta ese momento.
+      - elif option == 3:
+            count +=1
+            print("Counter incremented") .- Si elije 3 incrementa en 1 el contador.
+      - elif option == 0: 
+            print("Bye!") .- Si elije 0 imprime "Bye!".
+      
+   - Validations:
+      - else: 
+            print("Invalid option") .- Si elije otra opción que no sea 0,1,2,3 imprime "Invalid option" y rompe el while.
+            break
+
+   - Test Cases: 
+      # CASO NORMAL
+
+      --- MENU ---
+      1) Show greeting
+      2) Show current counter value
+      3) Increment counter
+      0) Exit
+      Choose your option: 1
+      Hello!!
+
+      --- MENU ---
+      1) Show greeting
+      2) Show current counter value
+      3) Increment counter
+      0) Exit
+      Choose your option: 3
+      Counter incremented
+
+      --- MENU ---
+      1) Show greeting
+      2) Show current counter value
+      3) Increment counter
+      0) Exit
+      Choose your option: 2
+      Your counter so far: 1
+
+      --- MENU ---
+      1) Show greeting
+      2) Show current counter value
+      3) Increment counter
+      0) Exit
+      Choose your option: 0
+      Bye!
+
+      # CASO BORDE
+
+      --- MENU ---
+      1) Show greeting
+      2) Show current counter value
+      3) Increment counter
+      0) Exit
+      Choose your option: 0
+      Bye!
+
+      # CASO ERROR
+
+      --- MENU ---
+      1) Show greeting
+      2) Show current counter value
+      3) Increment counter
+      0) Exit
+      Choose your option: 5
+      Invalid option
+"""
+print("\n")
+print("------------------------------------------------------------------------------------------------------")
+
+option= -1
+count= 0
+while option != 0:
+    print("\n--- MENU ---")
+    print("1) Show greeting")
+    print("2) Show current counter value")
+    print("3) Increment counter")
+    print("0) Exit")
+
+    option= int(input("Choose your option: "))
+
+
+    if option == 1:
+        print("Hello!!")
+    elif option == 2:
+        print(f"Your counter so far: {count}")
+    elif option == 3:
+        count +=1
+        print("Counter incremented")
+    elif option == 0:
+        print("Bye!")
+    else: 
+        print("Invalid option")
+        break
+
+
+# Problem 6: Pattern printing with nested loops
+"""
+   - Descripción: 
+
+   - Inputs:
+ 
    - Outputs:
 
    - Validations:
@@ -322,10 +433,62 @@ while attempts < MAX_ATTEMPTS:
    - Test Cases: 
       # CASO NORMAL
 
+      
+      Enter the number of rows: 6
+      Normal pattern:
+      *
+      **
+      ***
+      ****
+      *****
+      ******
+
       # CASO BORDE
 
+      Enter the number of rows: 1
+      Normal pattern:
+      *
+
       # CASO ERROR
+
+      Enter the number of rows: 0
+      Error: invalid input
 """
 print("\n")
 print("------------------------------------------------------------------------------------------------------")
 
+n= input("Enter the number of rows: ")
+
+if not n.isdigit():
+    print("Error: invalid input")
+else:
+    n = int(n)
+
+    if n < 1:
+        print("Error: invalid input")
+    else:
+        print("\nNormal pattern:")
+        for i in range(1, n + 1):
+            print("*" * i)
+
+print("------------------------------------------------------------------------------------------------------")
+
+# CONCLUSIONES
+"""
+   Al trabajar con bucles me di cuenta de que usar for y usar while se sienten muy diferentes: el for es más directo cuando ya 
+   sabes cuántas veces repetir algo, mientras que el while se parece más a estar “esperando” a que pase cierta condición. 
+   También noté lo útiles que son los contadores y acumuladores, porque te ayudan a llevar control sin perderte entre tantos números. 
+   Eso sí, descubrí que el while puede ser peligroso si no lo manejas bien, porque un simple descuido puede dejar el programa atrapado 
+   en un ciclo infinito. Los ejercicios de menús y contraseñas mostraron situaciones muy reales donde el while es perfecto para repetir 
+   intentos o preguntas. Y, por último, los bucles anidados me ayudaron a ver cómo se pueden crear patrones visuales paso a paso, como 
+   si estuviera dibujando con código.
+"""
+
+# REFERENCIAS
+"""
+   1) Bucle For - https://ellibrodepython.com/for-python 
+   2) Bucle For en python - https://j2logo.com/bucle-for-en-python/#for-en-python
+   3) Bucles While - https://ellibrodepython.com/while-python
+   4) Qué es un acumulador? - https://www.youtube.com/watch?v=L51HqhsvG68&t=27s
+   5) Python range() y uso del For - https://docs.python.org/3/tutorial/controlflow.html#for-statements
+"""
