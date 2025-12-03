@@ -384,21 +384,82 @@ else:
 # Problem 6: Factorial function (iterative or recursive)
 """
    - Descripción: 
+      El programa calcula el factorial de un número entero no negativo usando una función factorial(n). Se valida que n sea entero, 
+      mayor o igual a cero y que no exceda un límite razonable para evitar resultados enormes. Luego llama a la función factorial 
+      y muestra el resultado al usuario.
 
    - Inputs:
+      - n_text = input("Enter a non-negative integer: ").strip() .- Solicita al usuario un entero no negativo.
 
    - Outputs:
+      - print("n:", n) .- Muestra el número ingresado ya validado.
+      - print("Factorial:", value) .- Muestra el resultado del factorial calculado.
 
    - Validations:
+      - if n < 0 or n > 20: print("Error: invalid input") .- Valida que n sea mayor o igual a 0 y no exceda el límite permitido.
 
    - Test Cases: 
       # CASO NORMAL
 
+        Enter a non-negative integer: 6
+        n: 6
+        Factorial: 720
+
       # CASO BORDE
 
+        Enter a non-negative integer: 0
+        n: 0
+        Factorial: 1
+
       # CASO ERROR
+
+        Enter a non-negative integer: -3
+        Error: invalid input
 """
 print("\n")
 print("------------------------------------------------------------------------------------------------------")
+
+"""
+    Versión iterativa: se elige para evitar límites de recursión y ser más eficiente.
+"""
+def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+n_text = input("Enter a non-negative integer: ").strip()
+
+if not n_text.isdigit():
+    print("Error: invalid input")
+else:
+    n = int(n_text)
+
+    if n < 0 or n > 20:
+        print("Error: invalid input")
+    else:
+        value = factorial(n)
+        print("n:", n)
+        print("Factorial:", value)
+
+print("------------------------------------------------------------------------------------------------------")
+
+# CONCLUSIONES
+"""
+   Las funciones me ayudaron a mantener el código más ordenado, porque pude separar cada tarea en una parte clara y reutilizable, 
+   en vez de repetir lo mismo varias veces. También entendí que usar return es mucho más útil que solo imprimir, porque te permite 
+   trabajar con los resultados después, combinarlos o validarlos. Algo que me gustó fue usar parámetros con valores por defecto, ya 
+   que hacen el código más flexible y fácil de usar sin tanta configuración. Noté que "guardar" la lógica en funciones es especialmente 
+   cómodo cuando hay cálculos repetidos o validaciones que se usan en varios lugares.
+"""
+
+# REFERENCIAS
+"""
+   1) Defining Functions - https://docs.python.org/3/tutorial/controlflow.html#defining-functions
+   2) Diferencia entre parámetros y argumentos - https://www.geeksforgeeks.org/computer-science-fundamentals/difference-between-parameters-and-arguments/?utm_source 
+   3) La declaración return de Python: uso y mejores prácticas - https://realpython.com/python-return-statement/?utm_source 
+   4) Funciones en Python - https://ellibrodepython.com/funciones-en-python?utm_source
+   5) Python Functions - https://www.programiz.com/python-programming/function
+"""
 
 
