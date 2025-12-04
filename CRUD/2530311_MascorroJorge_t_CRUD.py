@@ -42,12 +42,29 @@
 # Problem: CRUD with functions
 """
    - Descripción: 
+      Este programa implementa un sistema CRUD para gestionar productos dentro de un inventario usando un diccionario. El usuario puede 
+      crear, leer, actualizar, eliminar y listar elementos mediante un menú interactivo. El programa recibe datos como ID, nombre, precio 
+      y cantidad, y valida que sean correctos antes de operar.
 
    - Inputs:
+      - item_id = input("ID: ").strip() .— Pide el identificador del producto.
+      - name = input("Nombre: ").strip() .— Pide el nombre del producto.
+      - price = float(input("Precio: ")) .— Solicita el precio del artículo.
+      - quantity = int(input("Cantidad: ")) .— Solicita la cantidad disponible.
 
    - Outputs:
+      - print("Item created") .— Confirma que un producto fue creado.
+      - print(item) .— Muestra la información de un producto al leerlo.
+      - print("Item updated") .— Indica que un artículo fue actualizado.
+      - print("Item deleted") .— Indica que un producto fue eliminado.
+      - list_items(inventario) .— Muestra todos los artículos del inventario.
 
    - Validations:
+      - if item_id in inventario .— Verifica que el ID no esté duplicado al crear.
+      - if item_id not in inventario .— Comprueba que el producto exista para leer, actualizar o borrar.
+      - except ValueError: .— Valida que precio y cantidad sean numéricos.
+      - if price < 0 or quantity < 0: .— Asegura que no se ingresen valores negativos.
+      - if not inventario: .— Verifica si el inventario está vacío al listar.
 
    - Test Cases: 
       # CASO NORMAL
